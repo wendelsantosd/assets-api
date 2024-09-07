@@ -3,13 +3,14 @@ import { Asset, CreateAssetDTO, UpdateAssetDTO } from 'src/graphql.schema';
 import { PrismaClient } from '@prisma/client';
 
 @Injectable()
-export class AssetService extends PrismaClient implements OnModuleInit {
+export class AssetService implements OnModuleInit {
+  constructor(private prisma: PrismaClient) {}
   async onModuleInit() {
-    await this.$connect();
+    await this.prisma.$connect();
   }
 
   async create(data: CreateAssetDTO): Promise<string> {
-    await this.assets.create({
+    await this.prisma.assets.create({
       data: { ...data },
     });
 
@@ -17,7 +18,7 @@ export class AssetService extends PrismaClient implements OnModuleInit {
   }
 
   async update(data: UpdateAssetDTO): Promise<string> {
-    await this.assets.update({
+    await this.prisma.assets.update({
       where: { id: data.id },
       data: {
         ...data,
@@ -28,17 +29,17 @@ export class AssetService extends PrismaClient implements OnModuleInit {
   }
 
   async findAll(): Promise<Asset[]> {
-    return (await this.assets.findMany()) as any;
+    return (await this.prisma.assets.findMany()) as any;
   }
 
   async findOne(id: string): Promise<Asset | null> {
-    return (await this.assets.findUnique({
+    return await this.prisma.assets.findUnique({
       where: { id },
-    })) as any;
+    });
   }
 
   async delete(id: string): Promise<string> {
-    await this.assets.delete({
+    await this.prisma.assets.delete({
       where: { id },
     });
 

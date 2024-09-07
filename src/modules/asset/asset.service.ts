@@ -1,13 +1,10 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { Asset, CreateAssetDTO, UpdateAssetDTO } from 'src/graphql.schema';
 import { PrismaClient } from '@prisma/client';
 
 @Injectable()
-export class AssetService implements OnModuleInit {
+export class AssetService {
   constructor(private prisma: PrismaClient) {}
-  async onModuleInit() {
-    await this.prisma.$connect();
-  }
 
   async create(data: CreateAssetDTO): Promise<string> {
     await this.prisma.assets.create({

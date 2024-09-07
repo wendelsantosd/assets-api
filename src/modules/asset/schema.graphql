@@ -1,0 +1,30 @@
+type Asset {
+  id: ID!
+  name: String!
+  value: Float!
+  date: String
+}
+
+input CreateAssetDTO {
+  name: String!
+  value: Float!
+  date: String
+}
+
+input UpdateAssetDTO {
+  id: ID!
+  name: String
+  value: Float
+  date: String
+}
+
+type Query {
+  assets: [Asset!]!
+  asset(_id: ID!): Asset
+}
+
+type Mutation {
+  createAsset(data: CreateAssetDTO!): String!
+  updateAsset(data: UpdateAssetDTO!): String
+  deleteAsset(_id: ID!): String
+}

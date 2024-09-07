@@ -22,12 +22,12 @@ export class AssetResolvers {
   }
 
   @Query('asset')
-  async asset(@Args('_id') _id: string): Promise<Asset | null> {
-    return this.assetService.findOne(_id);
+  async asset(@Args('id') id: string): Promise<Asset | null> {
+    return this.assetService.findOne(id);
   }
 
   @Mutation('deleteAsset')
-  async delete(@Args('_id') _id: string): Promise<string> {
-    return this.assetService.delete(_id);
+  async delete(@Args('id') id: string): Promise<string> {
+    return this.assetService.delete(id);
   }
 }

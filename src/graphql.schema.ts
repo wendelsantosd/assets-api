@@ -31,7 +31,7 @@ export class Asset {
 export abstract class IQuery {
     abstract assets(): Asset[] | Promise<Asset[]>;
 
-    abstract asset(_id: string): Nullable<Asset> | Promise<Nullable<Asset>>;
+    abstract asset(id: string): Nullable<Asset> | Promise<Nullable<Asset>>;
 }
 
 export abstract class IMutation {
@@ -39,7 +39,7 @@ export abstract class IMutation {
 
     abstract updateAsset(data: UpdateAssetDTO): Nullable<string> | Promise<Nullable<string>>;
 
-    abstract deleteAsset(_id: string): Nullable<string> | Promise<Nullable<string>>;
+    abstract deleteAsset(id: string): Nullable<string> | Promise<Nullable<string>>;
 }
 
 type Nullable<T> = T | null;

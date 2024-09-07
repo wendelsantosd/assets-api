@@ -33,13 +33,13 @@ export class AssetService extends PrismaClient implements OnModuleInit {
 
   async findOne(id: string): Promise<Asset | null> {
     return (await this.assets.findUnique({
-      where: { id: id },
+      where: { id },
     })) as any;
   }
 
   async delete(id: string): Promise<string> {
     await this.assets.delete({
-      where: { id: id },
+      where: { id },
     });
 
     return 'Asset deleted';

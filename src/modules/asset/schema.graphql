@@ -20,11 +20,11 @@ input UpdateAssetDTO {
 
 type Query {
   assets: [Asset!]!
-  asset(_id: ID!): Asset
+  asset(id: ID!): Asset
 }
 
 type Mutation {
   createAsset(data: CreateAssetDTO!): String!
   updateAsset(data: UpdateAssetDTO!): String
-  deleteAsset(_id: ID!): String
+  deleteAsset(id: ID!): String
 }

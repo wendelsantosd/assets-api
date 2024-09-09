@@ -62,30 +62,6 @@
     "tsconfig-paths": "4.2.0",
     "typescript": "5.3.3"
   },
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "roots": [
-      "src",
-      "test"
-    ],
-    "testRegex": ".*\\.spec\\.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
-    ],
-    "coverageDirectory": "../coverage",
-    "coverageReporters": [
-      "lcov",
-      "text"
-    ],
-    "testEnvironment": "node"
-  },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
   }

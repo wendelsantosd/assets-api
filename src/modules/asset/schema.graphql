@@ -24,7 +24,7 @@ type Query {
 }
 
 type Mutation {
-  createAsset(data: CreateAssetDTO!): String!
-  updateAsset(data: UpdateAssetDTO!): String
+  createAsset(data: CreateAssetDTO!): Asset!
+  updateAsset(data: UpdateAssetDTO!): Asset
   deleteAsset(id: ID!): String
 }

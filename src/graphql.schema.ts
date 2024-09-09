@@ -35,9 +35,9 @@ export abstract class IQuery {
 }
 
 export abstract class IMutation {
-    abstract createAsset(data: CreateAssetDTO): string | Promise<string>;
+    abstract createAsset(data: CreateAssetDTO): Asset | Promise<Asset>;
 
-    abstract updateAsset(data: UpdateAssetDTO): Nullable<string> | Promise<Nullable<string>>;
+    abstract updateAsset(data: UpdateAssetDTO): Nullable<Asset> | Promise<Nullable<Asset>>;
 
     abstract deleteAsset(id: string): Nullable<string> | Promise<Nullable<string>>;
 }

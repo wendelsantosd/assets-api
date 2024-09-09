@@ -7,12 +7,12 @@ export class AssetResolvers {
   constructor(private readonly assetService: AssetService) {}
 
   @Mutation('createAsset')
-  async create(@Args('data') data: CreateAssetDTO): Promise<string> {
+  async create(@Args('data') data: CreateAssetDTO): Promise<Asset> {
     return await this.assetService.create(data);
   }
 
   @Mutation('updateAsset')
-  async update(@Args('data') data: UpdateAssetDTO): Promise<string> {
+  async update(@Args('data') data: UpdateAssetDTO): Promise<Asset> {
     return this.assetService.update(data);
   }
 

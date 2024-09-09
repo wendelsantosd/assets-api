@@ -6,23 +6,19 @@ import { PrismaClient } from '@prisma/client';
 export class AssetService {
   constructor(private prisma: PrismaClient) {}
 
-  async create(data: CreateAssetDTO): Promise<string> {
-    await this.prisma.assets.create({
+  async create(data: CreateAssetDTO): Promise<Asset> {
+    return await this.prisma.assets.create({
       data: { ...data },
     });
-
-    return 'Asset created';
   }
 
-  async update(data: UpdateAssetDTO): Promise<string> {
-    await this.prisma.assets.update({
+  async update(data: UpdateAssetDTO): Promise<Asset> {
+    return await this.prisma.assets.update({
       where: { id: data.id },
       data: {
         ...data,
       },
     });
-
-    return 'Asset updated';
   }
 
   async findAll(): Promise<Asset[]> {
@@ -40,6 +36,6 @@ export class AssetService {
       where: { id },
     });
 
-    return 'Asset deleted';
+    return id;
   }
 }

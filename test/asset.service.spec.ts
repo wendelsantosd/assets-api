@@ -54,7 +54,7 @@ describe('AssetService Tests', () => {
 
     const result = await assetService.create(data);
 
-    expect(result).toEqual('Asset created');
+    expect(result).toEqual(assetMock);
   });
 
   it('Should update an asset', async () => {
@@ -68,7 +68,7 @@ describe('AssetService Tests', () => {
 
     const result = await assetService.update(data);
 
-    expect(result).toEqual('Asset updated');
+    expect(result).toEqual(assetMock);
   });
 
   it('Should delete an asset', async () => {
@@ -78,6 +78,6 @@ describe('AssetService Tests', () => {
 
     const result = await assetService.delete(id);
 
-    expect(result).toEqual('Asset deleted');
+    expect(result).toEqual(id);
   });
 });

@@ -22,7 +22,7 @@ export class AssetService {
   }
 
   async findAll(): Promise<Asset[]> {
-    return (await this.prisma.assets.findMany()) as any;
+    return await this.prisma.assets.findMany();
   }
 
   async findOne(id: string): Promise<Asset | null> {
